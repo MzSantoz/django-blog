@@ -1,9 +1,124 @@
-<h1>Blog</h1>
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Strata by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+	<head>
+		<title>Django 3 - Super Simple Blog Example</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{% static 'assets/css/main.css' %}" />
+	</head>
+	<body class="is-preload">
 
-{% for post in posts %}
-<div>
-    <h4>{{ post.title }}</h4>
-    <h2>{{ post.sub_title }}</h2>
-    <p>{{ post.content }}</p>
-</div>
-{% endfor %}
+		<!-- Header -->
+			<header id="header">
+				<div class="inner">
+					<a href="#" class="image avatar"><img src="https://media-exp1.licdn.com/dms/image/C4E03AQH6D2wEjA5Vsw/profile-displayphoto-shrink_400_400/0/1612225845008?e=1619049600&v=beta&t=_1M18EaEnOsmkiC863VrlPbV76pMxbR2sp4kzREBWuY" alt="" /></a>
+					<h1><strong><a href="https://www.djangoproject.com/download/" target="_blank">Django 3</a></strong>, super simple
+					blog example<br />
+					developed by <a href="https://instagram.com/mzsantoz">@mzsantoz</a>.</h1>
+				</div>
+			</header>
+
+		<!-- Main -->
+			<div id="main">
+
+				<!-- One -->
+					<section id="one">
+						<header class="major">
+							<h2><strong>Important Notes</strong></h2>
+							<h3>To access /admin panel use the following credentials:</h3>
+							<code>Username: admin; Password: admin</code>
+							<h4>To clone this app for study purporses, please go to <a href="https://github.com/MzSantoz/django-blog" target="_blank">Github</a>.</h4>
+						</header>
+						<p>Made for study in Febuary/2021.</p>
+					</section>
+
+				<!-- Two -->
+					<section id="two">
+						<h2>Recent in Blog</h2>
+						<div class="row">
+						 
+							{% for post in posts %}
+							<article class="col-6 col-12-xsmall work-item">
+								<small>{{ post.get_category_label }}</small>
+								<a href="{% static 'images/fulls/01.jpg' %}" class="image fit thumb"><img src="{% static 'images/thumbs/01.jpg' %}" alt="" /></a>
+								<h3>{{ post.title }}</h3>
+								<p>{{ post.sub_title }}</p>
+							</article>
+							{% endfor %}
+				
+						</div>
+						<ul class="actions">
+							<li><a href="#" class="button">Full Portfolio</a></li>
+						</ul>
+					</section>
+
+				<!-- Three -->
+					<section id="three">
+						<h2>Get In Touch</h2>
+						<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+						<div class="row">
+							<div class="col-8 col-12-small">
+								<form method="post" action="#">
+									<div class="row gtr-uniform gtr-50">
+										<div class="col-6 col-12-xsmall"><input type="text" name="name" id="name" placeholder="Name" /></div>
+										<div class="col-6 col-12-xsmall"><input type="email" name="email" id="email" placeholder="Email" /></div>
+										<div class="col-12"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+									</div>
+								</form>
+								<ul class="actions">
+									<li><input type="submit" value="Send Message" /></li>
+								</ul>
+							</div>
+							<div class="col-4 col-12-small">
+								<ul class="labeled-icons">
+									<li>
+										<h3 class="icon solid fa-home"><span class="label">Address</span></h3>
+										1234 Somewhere Rd.<br />
+										Nashville, TN 00000<br />
+										United States
+									</li>
+									<li>
+										<h3 class="icon solid fa-mobile-alt"><span class="label">Phone</span></h3>
+										000-000-0000
+									</li>
+									<li>
+										<h3 class="icon solid fa-envelope"><span class="label">Email</span></h3>
+										<a href="#">hello@untitled.tld</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</section>
+
+			</div>
+
+		<!-- Footer -->
+			<footer id="footer">
+				<div class="inner">
+					<ul class="icons">
+						<li><a href="https://github.com/MzSantoz" target="_blank" class="icon brands fa-github"><span class="label">Github</span></a></li>
+						<li><a href="https://linkedin.com/in/mzsantoz" target="_blank" class="icon brands fa-linkedin"><span class="label">Linkedin</span></a></li>
+						<li><a href="mailto:mzsantoz@outlook.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
+					</ul>
+					<ul class="copyright">
+						<li>&copy; mzsantoz</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+					</ul>
+				</div>
+			</footer>
+
+		<!-- Scripts -->
+			<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+			<script src="{% static 'assets/js/jquery.poptrox.min.js' %}"></script>
+			<script src="{% static 'assets/js/browser.min.js' %}"></script>
+			<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+			<script src="{% static 'assets/js/util.js' %}"></script>
+			<script src="{% static 'assets/js/main.js' %}"></script>
+
+	</body>
+</html>
