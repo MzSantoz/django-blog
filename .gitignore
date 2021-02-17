@@ -1,2 +1,5 @@
 venv
 .env
+media
+.vscode
+db.sqlite3
