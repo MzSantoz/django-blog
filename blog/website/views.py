@@ -10,3 +10,7 @@ def blog(request):
     }
 
   return render(request, 'index.html', data)
+
+def post_detail(request, slug):
+  post = Post.objects.get(slug = slug)
+  return render(request, 'post_detail.html', {'post':post})

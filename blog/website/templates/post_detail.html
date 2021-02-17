@@ -26,37 +26,15 @@
 
 		<!-- Main -->
 			<div id="main">
-
-				<!-- One -->
+        <div class="row">
+          <a class="button" style="padding-left: 10px; margin-left: 40px;"href="javascript:window.history.back();"><i class="fa fa-backward"></i> Back</a>
+        </div>
 					<section id="one">
-						<header class="major">
-							<h2><strong>Important Notes</strong></h2>
-							<h3>To access /admin panel use the following credentials:</h3>
-							<code>Username: admin; Password: admin</code>
-							<h4>To clone this app for study purporses, please go to <a href="https://github.com/MzSantoz/django-blog" target="_blank">Github</a>.</h4>
-						</header>
-						<p>Made for study in Febuary/2021.</p>
-					</section>
-
-				<!-- Two -->
-					<section id="two">
-						<h2>Recent in Blog</h2>
+            <img src="{{ post.image.url }}" alt="" width="100%">
+						<h2>{{ post.title }} - {{ post.sub_title }} </h2>
 						<div class="row">
-						 
-							{% for post in posts %}
-							<article class="col-6 col-12-xsmall work-item">
-								<small style="color:darkolivegreen;">{{ post.get_category_label }}</small>
-								{% if post.image.url %}
-								<a href="{{ post.image.url }}" class="image fit thumb"><img src="{{ post.image.url }}" alt="" /></a>
-								{% else %}
-								<a href="{% static 'images/fulls/01.jpg' %}" class="image fit thumb"><img src="{% static 'images/thumbs/01.jpg' %}" alt="" /></a>
-								{% endif %}
-								<h3>{{ post.title }}</h3>
-								<p>{{ post.sub_title }}</p>
-								<a class="button"href="{% url 'post_detail' post.slug %}">Read More</a>
-							</article>
-							{% endfor %}
-				
+								<h4>Category: {{ post.get_category_label }}</h4>
+								<p>{{ post.content }}</p>
 						</div>
 					</section>
 

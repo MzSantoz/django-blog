@@ -1,5 +1,6 @@
 import uuid
 from django.db import models
+from django.urls import reverse
 
 class Categories(models.TextChoices):
       TECH = 'TC', 'Technology'
@@ -18,9 +19,14 @@ class Post(models.Model):
     default=Categories.TECH,
   )
   deleted = models.BooleanField(default=False)
+  slug = models.SlugField(null=True, unique=True)
+  image = models.ImageField(upload_to='posts', null=True, blank=True)
 
   def __str__(self):
     return self.title
+
+  def get_absolute_url(self):
+    return reverse('post_detail', kwargs={'slug': self.slug})
   
   def get_category_label(self):
-    return self.get_categories_display();
+    return self.get_categories_display()
