@@ -46,7 +46,7 @@
 							{% for post in posts %}
 							<article class="col-6 col-12-xsmall work-item">
 								<small style="color:darkolivegreen;">{{ post.get_category_label }}</small>
-								{% if post.image.url %}
+								{% if post.image %}
 								<a href="{{ post.image.url }}" class="image fit thumb"><img src="{{ post.image.url }}" alt="" /></a>
 								{% else %}
 								<a href="{% static 'images/fulls/01.jpg' %}" class="image fit thumb"><img src="{% static 'images/thumbs/01.jpg' %}" alt="" /></a>
