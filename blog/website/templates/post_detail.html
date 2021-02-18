@@ -30,7 +30,11 @@
           <a class="button" style="padding-left: 10px; margin-left: 40px;"href="javascript:window.history.back();"><i class="fa fa-backward"></i> Back</a>
         </div>
 					<section id="one">
+						{% if post.image %}
             <img src="{{ post.image.url }}" alt="" width="100%">
+						{% else %}
+            <img src="{% static 'images/fulls/01.jpg' %}" alt="" width="100%">
+						{% endif %}
 						<h2>{{ post.title }} - {{ post.sub_title }} </h2>
 						<div class="row">
 								<h4>Category: {{ post.get_category_label }}</h4>
